@@ -32,13 +32,17 @@ class Bubble {
 		this.childLevel = parseInt(this.level) + 1;
 
 		this.children = this.DOM.querySelectorAll('.bubble-' + this.childLevel);
+
+		if (this.children.length == 0) {
+			this.DOM.classList.add('nochildren');
+		}
 		
 		this.DOM.addEventListener('click', this.ClickHandler);
 	}
 
 	ClickHandler(e) {
 		e.stopPropagation();
-		if (!e.target.classList.contains('floating')) {
+		if (this.classList.contains('active') &&!e.target.classList.contains('floating')) {
 			if (this.Bubble.children.length > 0) {
 
 				const visibles = document.querySelectorAll(`.bubble-${this.Bubble.level}.visible`);
@@ -58,10 +62,12 @@ class Bubble {
 
 	Activate() {
 		this.DOM.classList.add('visible');
+		this.DOM.classList.add('active');
 	}
 
 	Hide() {
 		this.content.classList.add('hidden');
+		this.DOM.classList.remove('active');
 	}
 }
 
