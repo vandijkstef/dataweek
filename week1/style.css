@@ -1,0 +1,56 @@
+body {
+  background-color: grey;
+  margin: 0;
+}
+
+header {
+  background-color: black;
+  color: white;
+  position: absolute;
+  width: 100%;
+}
+
+header span {
+  padding: 1rem;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bubble {
+  padding: 1rem;
+  text-align: center;
+  margin: 0 auto;
+  display: none;
+}
+
+.bubble.visible {
+  display: flex;
+}
+
+.bubble .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: red;
+  width: 5em;
+  height: 5em;
+  position: relative;
+  font-size: 4em;
+}
+
+.bubble .content.hidden {
+  display: none;
+}
+
+.bubble .floating {
+  font-size: .4em;
+  position: absolute;
+  top: -2em;
+  left: -6em;
+}
