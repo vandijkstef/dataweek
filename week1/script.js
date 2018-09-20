@@ -51,11 +51,14 @@ class Bubble {
 						bubble.classList.remove('visible');
 					}
 				});
-				this.Bubble.children.forEach((bubble) => {
-					bubble.Bubble.Activate();
-				});
-				this.Bubble.Hide();
 				this.Bubble.Bubbler.AddText(this.Bubble);
+				this.Bubble.Fade();
+				setTimeout(() => {
+					this.Bubble.children.forEach((bubble) => {
+						bubble.Bubble.Activate();
+					});
+					this.Bubble.Hide();
+				}, 200);
 			}
 		}
 	}
@@ -65,13 +68,15 @@ class Bubble {
 		this.DOM.classList.add('active');
 	}
 
+	Fade() {
+		this.DOM.classList.add('animate');
+	}
+
 	Hide() {
 		this.content.classList.add('hidden');
 		this.DOM.classList.remove('active');
 	}
 }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
 	new Bubbler();

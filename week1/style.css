@@ -17,6 +17,8 @@ header span {
 
 main {
   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +33,12 @@ main {
 
 .bubble.visible {
   display: flex;
+  position: relative;
+  animation: hover 6s ease-in-out infinite;
+}
+
+.bubble.visible.animate {
+  animation: zoomFade .2s ease-in;
 }
 
 .bubble.nochildren .content {
@@ -62,4 +70,33 @@ main {
   text-align: right;
   color: black;
   width: 100%;
+}
+
+@keyframes zoomFade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@keyframes hover {
+  0% {
+    top: -1em;
+    left: -.5em;
+  }
+  50% {
+    top: 1em;
+    left: .2em;
+  }
+  100% {
+    top: -1em;
+    left: -.5em;
+  }
 }
