@@ -5,13 +5,16 @@ body {
 }
 
 header {
-  background-color: black;
-  color: white;
+  color: #777;
   position: absolute;
+  top: 1em;
   width: 100%;
+  font-size: 2em;
+  text-align: center;
 }
 
 header span {
+  margin-top: 1rem;
   padding: 1rem .2rem;
 }
 
@@ -41,10 +44,6 @@ main {
   animation: zoomFade .2s ease-in;
 }
 
-.bubble.nochildren .content {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .bubble .content {
   display: flex;
   justify-content: center;
@@ -56,10 +55,17 @@ main {
   height: 5em;
   position: relative;
   font-size: 4em;
+  box-shadow: 0rem 0.4rem 2rem rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }
 
 .bubble .content.hidden {
   display: none;
+}
+
+.bubble.nochildren .content {
+  cursor: default;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .bubble .floating {
@@ -70,6 +76,21 @@ main {
   text-align: right;
   color: black;
   width: 100%;
+}
+
+.bubble .floating:nth-of-type(2) {
+  right: unset;
+  left: 10em;
+  text-align: left;
+  color: #AAA;
+}
+
+.bubble .floating:nth-of-type(2)::before {
+  content: "(";
+}
+
+.bubble .floating:nth-of-type(2)::after {
+  content: ")";
 }
 
 @keyframes zoomFade {

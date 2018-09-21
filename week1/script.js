@@ -14,7 +14,7 @@ class Bubbler {
 	AddText(Bubble) {
 		const newText = document.createElement('span');
 		newText.innerText = Bubble.floating.innerText;
-		newText.innerText += " " + Bubble.mainText.innerText;
+		newText.innerText += " " + Bubble.mainText.innerText.toLowerCase();
 		this.header.appendChild(newText);
 	}
 }
